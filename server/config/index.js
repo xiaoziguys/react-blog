@@ -4,8 +4,8 @@ const config = {
   PORT: 6060, // 启动端口
   ADMIN_GITHUB_LOGIN_NAME: 'gershonv', // 博主的 github 登录的账户名 user
   GITHUB: {
-    client_id: 'c6a96a84105bb0be1fe5',
-    client_secret: '463f3994ab5687544b2cddbb6cf44920bf179ad9',
+    client_id: '91b454e7e36bc0008979',
+    client_secret: 'd0c8070b29262b00be2b1f150e92b6bb6fa7155e',
     access_token_url: 'https://github.com/login/oauth/access_token',
     fetch_user_url: 'https://api.github.com/user', // 用于 oauth2
     fetch_user: 'https://api.github.com/users/' // fetch user url https://api.github.com/users/gershonv
@@ -13,7 +13,7 @@ const config = {
   EMAIL_NOTICE: {
     // 邮件通知服务
     // detail: https://nodemailer.com/
-    enable: true, // 开关
+    enable: false, // 开关
     transporterConfig: {
       host: 'smtp.163.com',
       port: 465,
