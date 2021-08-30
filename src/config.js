@@ -4,9 +4,10 @@ import SvgIcon from '@/components/SvgIcon'
 
 import Href from '@/components/Href'
 import MyInfo from '@/views/web/about/MyInfo'
+const isDev = process.env.NODE_ENV === 'production'
 
 // API_BASE_URL
-export const API_BASE_URL = 'http://localhost:6060'
+export const API_BASE_URL = isDev ? 'http://localhost:6060' : ''
 
 // project config
 export const HEADER_BLOG_NAME = 'Erciyuanxiaoqq的博客' // header title 显示的名字

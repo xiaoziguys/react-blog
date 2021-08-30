@@ -2,7 +2,7 @@ const devMode = process.env.NODE_ENV === 'development'
 
 const config = {
   PORT: 6060, // 启动端口
-  ADMIN_GITHUB_LOGIN_NAME: 'gershonv', // 博主的 github 登录的账户名 user
+  ADMIN_GITHUB_LOGIN_NAME: 'xiaoziguys', // 博主的 github 登录的账户名 user
   GITHUB: {
     client_id: '91b454e7e36bc0008979',
     client_secret: 'd0c8070b29262b00be2b1f150e92b6bb6fa7155e',
@@ -32,7 +32,7 @@ const config = {
     expiresIn: '720h' // token 有效期
   },
   DATABASE: {
-    database: 'test',
+    database: devMode ? 'test' : 'blog',
     user: 'root',
     password: '123456',
     options: {
