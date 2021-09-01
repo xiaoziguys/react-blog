@@ -16,7 +16,7 @@ import useFetchList from '@/hooks/useFetchList'
 
 function Archives(props) {
   const { dataList, loading, pagination } = useFetchList({
-    requestUrl: '/article/list',
+    requestUrl: 'api/article/list',
     queryParams: {
       pageSize: ARCHIVES_PAGESIZE
     },

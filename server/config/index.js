@@ -32,7 +32,7 @@ const config = {
     expiresIn: '720h' // token 有效期
   },
   DATABASE: {
-    database: devMode ? 'test' : 'blog',
+    database: 'blog',
     user: 'root',
     password: '123456',
     options: {

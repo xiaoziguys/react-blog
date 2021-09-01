@@ -3,7 +3,7 @@ import axios from '@/utils/axios'
 import { message } from 'antd'
 export const login = params => {
   return dispatch =>
-    axios.post('/login', params).then(res => {
+    axios.post('api/login', params).then(res => {
       dispatch({
         type: TYPES.USER_LOGIN,
         payload: res
@@ -15,7 +15,7 @@ export const login = params => {
 
 export const register = params => {
   return dispatch =>
-    axios.post('/register', params).then(res => {
+    axios.post('api/register', params).then(res => {
       message.success('注册成功，请重新登录您的账号！')
     })
 }

@@ -1,9 +1,10 @@
 const fs = require('fs')
 
-module.exports = (app) => {
+module.exports = app => {
   fs.readdirSync(__dirname).forEach(file => {
     if (file === 'index.js') return
-    const route = require(`./${file}`)
-    app.use(route.routes()).use(route.allowedMethods())
+    const router = require(`./${file}`)
+    console.log(router.routes)
+    app.use(router.routes()).use(router.allowedMethods())
   })
 }

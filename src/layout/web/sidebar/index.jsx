@@ -18,7 +18,7 @@ function SideBar(props) {
 
   const { dataList: articleList } = useFetchList({
     withLoading: false,
-    requestUrl: '/article/list',
+    requestUrl: 'api/article/list',
     queryParams: {
       order: 'viewCount DESC',
       page: 1,
