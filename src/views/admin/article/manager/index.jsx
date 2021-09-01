@@ -25,7 +25,7 @@ function ArticleManager(props) {
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
 
   const { tableProps, updateList, onSearch } = useAntdTable({
-    requestUrl: '/article/list',
+    requestUrl: 'api/article/list',
     queryParams,
     columns: [
       {
@@ -110,11 +110,11 @@ function ArticleManager(props) {
   }
 
   function outputAll() {
-    download('/article/output/all')
+    download('api/article/output/all')
   }
 
   function delList() {
-    axios.delete(`/article/list/${selectedRowKeys}`).then(() => {
+    axios.delete(`api/article/list/${selectedRowKeys}`).then(() => {
       onSearch()
       setSelectedRowKeys([])
     })

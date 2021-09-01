@@ -1,5 +1,5 @@
 const Router = require('koa-router')
-const router = new Router()
+const router = new Router({ prefix: '/api' })
 const { login, register } = require('../controllers/user')
 const { getTagList, getCategoryList } = require('../controllers/tag')
 

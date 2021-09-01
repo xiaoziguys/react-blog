@@ -1,5 +1,5 @@
 const Router = require('koa-router')
-const router = new Router({ prefix: '/user' })
+const router = new Router({ prefix: '/api/user' })
 const { getList, updateUser, delete: del } = require('../controllers/user')
 
 router

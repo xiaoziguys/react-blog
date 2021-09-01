@@ -4,7 +4,7 @@ import SvgIcon from '@/components/SvgIcon'
 
 import Href from '@/components/Href'
 import MyInfo from '@/views/web/about/MyInfo'
-const isDev = process.env.NODE_ENV === 'production'
+const isDev = process.env.NODE_ENV !== 'production'
 
 // API_BASE_URL
 export const API_BASE_URL = isDev ? 'http://localhost:6060' : ''

@@ -1,5 +1,5 @@
 const Router = require('koa-router')
-const router = new Router({ prefix: '/article' })
+const router = new Router({ prefix: '/api/article' })
 const {
   create,
   getList,
