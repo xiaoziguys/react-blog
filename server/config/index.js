@@ -1,15 +1,23 @@
 const devMode = process.env.NODE_ENV === 'development'
-
-const config = {
-  PORT: 6060, // 启动端口
-  ADMIN_GITHUB_LOGIN_NAME: 'xiaoziguys', // 博主的 github 登录的账户名 user
-  GITHUB: {
+const GITHUB = devMode
+  ? {
+    client_id: 'd387e4e517c2771d5e3d',
+    client_secret: 'dac6495537e516d1da075bad793a1d48b728f050',
+    access_token_url: 'https://github.com/login/oauth/access_token',
+    fetch_user_url: 'https://api.github.com/user', // 用于 oauth2
+    fetch_user: 'https://api.github.com/users/' // fetch user url https://api.github.com/users/gershonv
+  }
+  : {
     client_id: '91b454e7e36bc0008979',
     client_secret: 'd0c8070b29262b00be2b1f150e92b6bb6fa7155e',
     access_token_url: 'https://github.com/login/oauth/access_token',
     fetch_user_url: 'https://api.github.com/user', // 用于 oauth2
     fetch_user: 'https://api.github.com/users/' // fetch user url https://api.github.com/users/gershonv
-  },
+  }
+const config = {
+  PORT: 6060, // 启动端口
+  ADMIN_GITHUB_LOGIN_NAME: 'xiaoziguys', // 博主的 github 登录的账户名 user
+  GITHUB,
   EMAIL_NOTICE: {
     // 邮件通知服务
     // detail: https://nodemailer.com/
