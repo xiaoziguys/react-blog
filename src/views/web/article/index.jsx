@@ -37,7 +37,7 @@ function Article(props) {
   }, [])
 
   useEffect(() => {
-    withLoading(axios.get(`/article/${props.match.params.id}`))
+    withLoading(axios.get(`api/article/${props.match.params.id}`))
       .then(res => {
         res.content = translateMarkdown(res.content)
         setArticle(res)

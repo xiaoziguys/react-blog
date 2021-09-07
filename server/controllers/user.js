@@ -94,10 +94,13 @@ class UserController {
     const { access_token } = decodeQuery(result.data)
     if (access_token) {
       // 拿到 access_token 去获取用户信息
-      console.log(githubInfo)
-      const result2 = await axios.get(`${GITHUB.fetch_user_url}?access_token=${access_token}`)
+      const result2 = await axios.get(`${GITHUB.fetch_user_url}`, {
+        headers: {
+          accept: 'application/json',
+          Authorization: `token ${access_token}`
+        }
+      })
       const githubInfo = result2.data
-      console.log(githubInfo)
 
       let target = await UserController.find({ id: githubInfo.id }) // 在数据库中查找该用户是否存在
 

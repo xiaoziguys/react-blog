@@ -17,7 +17,7 @@ function AdminUser(props) {
   const { getFieldDecorator } = props.form
   const [queryParams, setQueryParams] = useState({})
   const { tableProps, updateList, onSearch } = useAntdTable({
-    requestUrl: '/user/list',
+    requestUrl: 'api/user/list',
     queryParams,
     columns: [
       { title: '用户名', dataIndex: 'username' },
@@ -28,7 +28,7 @@ function AdminUser(props) {
         render: (text, record) => (
           <Switch
             defaultChecked={text}
-            onChange={checked => updateList(() => axios.put(`/user/${record.id}`, { notice: checked }))}
+            onChange={checked => updateList(() => axios.put(`api/user/${record.id}`, { notice: checked }))}
           />
         )
       },
@@ -38,7 +38,7 @@ function AdminUser(props) {
         render: (text, record) => (
           <Switch
             defaultChecked={text}
-            onChange={checked => updateList(() => axios.put(`/user/${record.id}`, { disabledDiscuss: checked }))}
+            onChange={checked => updateList(() => axios.put(`api/user/${record.id}`, { disabledDiscuss: checked }))}
           />
         )
       },
@@ -60,7 +60,7 @@ function AdminUser(props) {
         render: (userId, record) => (
           <Popconfirm
             title='Are you sure？'
-            onConfirm={e => updateList(() => axios.delete(`/user/${userId}`))}>
+            onConfirm={e => updateList(() => axios.delete(`api/user/${userId}`))}>
             <a className='delete-text'>Delete</a>
           </Popconfirm>
         )

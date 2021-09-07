@@ -7,6 +7,7 @@ import { Button, Input, Modal, BackTop, message } from 'antd'
 import MdEditor from '@/components/MdEditor'
 import List from './Tag'
 import useBreadcrumb from '@/hooks/useBreadcrumb'
+
 function Edit(props) {
   const store = useSelector(state => ({
     tagList: state.article.tagList,
@@ -46,7 +47,7 @@ function Edit(props) {
   }, [store.tagList, store.categoryList])
 
   function fetchArticle(id) {
-    axios.get(`/article/${id}?type=0`).then(res => {
+    axios.get(`api/article/${id}?type=0`).then(res => {
       setTitle(res.title)
       setContent(res.content)
       const tags = res.tags.map(d => d.name)
@@ -61,7 +62,7 @@ function Edit(props) {
   function add() {
     if (!title) return message.warning('标题不能为空！')
     axios
-      .post('/article', {
+      .post('api/article', {
         title,
         content,
         tagList: tagSelectedList,
@@ -71,14 +72,14 @@ function Edit(props) {
       .then(res => {
         Modal.confirm({
           title: '文章创建成功！是否立即查看？',
-          onOk: () => props.history.push(`/article/${res.id}`)
+          onOk: () => props.history.push(`api/article/${res.id}`)
         })
       })
   }
 
   function update() {
     axios
-      .put(`/article/${editId}`, {
+      .put(`api/article/${editId}`, {
         title,
         content,
         tags: tagSelectedList,

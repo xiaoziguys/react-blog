@@ -13,7 +13,7 @@ function MdEditor(props) {
     <SimpleMDE
       value={props.value}
       onChange={props.onChange}
-      options={{ autofocus: true, autosave: true, previewRender: translateMarkdown }}
+      options={{ autofocus: true, previewRender: translateMarkdown }}
     />
   )
 }
